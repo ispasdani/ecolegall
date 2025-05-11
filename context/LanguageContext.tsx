@@ -1,4 +1,3 @@
-// context/LanguageContext.tsx
 "use client";
 
 import {
@@ -11,15 +10,17 @@ import {
 
 // Import all translation files
 import en from "@/consts/translations/en";
+import ro from "@/consts/translations/ro";
+import { AvailableLanguage } from "@/types/languageTypes";
 
 // Define types for the translations
 type TranslationDictionary = Record<string, any>;
 
 // Define the available languages
-type AvailableLanguage = "en";
 
 const translations: Record<AvailableLanguage, TranslationDictionary> = {
   en,
+  ro,
 };
 
 // Define the context type
@@ -47,7 +48,7 @@ export function LanguageProvider({
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedLang = localStorage.getItem("preferredLanguage");
-      if (savedLang && ["en", "fr", "es"].includes(savedLang)) {
+      if (savedLang && ["en", "ro"].includes(savedLang)) {
         setLang(savedLang as AvailableLanguage);
       }
     }
@@ -61,8 +62,12 @@ export function LanguageProvider({
   }, [lang]);
 
   const changeLang = (newLang: AvailableLanguage): void => {
-    if (["en", "fr", "es"].includes(newLang)) {
+    console.log("ChangeLang called with:", newLang);
+    if (["en", "ro"].includes(newLang)) {
       setLang(newLang);
+      console.log("Language set to:", newLang);
+    } else {
+      console.warn(`Invalid language code: ${newLang}`);
     }
   };
 

@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
+import { AvailableLanguage } from "@/types/languageTypes";
 
-type AvailableLanguage = "en";
-const availableLanguages: AvailableLanguage[] = ["en"];
+const availableLanguages: AvailableLanguage[] = ["en", "ro"];
 
 export default function LanguageSynchronizer() {
   const params = useParams();

@@ -1,15 +1,15 @@
 // app/page.tsx
 "use client";
 
+import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
-import LanguageSwitcher from "@/components/general/LanguageSwitcher";
 
 export default function Home() {
   const { t } = useLanguage();
 
   return (
     <main>
-      <header className="bg-red-300">
+      <header className="">
         <h1>{t("public.title")}</h1>
         <div className="header-right">
           <LanguageSwitcher />

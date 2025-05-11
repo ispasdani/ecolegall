@@ -34,5 +34,5 @@ const SidebarLayout = ({ children }: SidebarLayoutProps) => {
 export default SidebarLayout;
 
 export async function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "fr" }, { lang: "es" }];
+  return [{ lang: "en" }, { lang: "fr" }, { lang: "ro" }, { lang: "es" }];
 }
