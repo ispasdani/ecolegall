@@ -26,6 +26,10 @@ export default {
       description: "Get AI-powered legal advice and document analysis.",
       askQuestion: "Ask a legal question",
     },
+    sidebarDashboard: {
+      title: "Dashboard",
+      url: "/{lang}/dashboard",
+    },
     sidebarContract: {
       title: "Contract Analyzer",
       url: "/{lang}/contract-analyzer",
@@ -33,6 +37,14 @@ export default {
     sidebarAskAQuestion: {
       title: "Ask a Legal Question",
       url: "/{lang}/legal-question",
+    },
+    sidebarDocumentAnalyzer: {
+      title: "Document Analyzer",
+      url: "/{lang}/document-analyzer",
+    },
+    sidebarGenerateDocument: {
+      title: "Generate Document",
+      url: "/{lang}/generate-document",
     },
   },
 };

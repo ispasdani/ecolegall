@@ -27,6 +27,10 @@ export default {
         "Obține sfaturi juridice bazate pe AI și analiză de documente.",
       askQuestion: "Pune o întrebare juridică",
     },
+    sidebarDashboard: {
+      title: "Acasa",
+      url: "/{lang}/dashboard",
+    },
     sidebarContract: {
       title: "Analizeaza Contract",
       url: "/{lang}/contract-analyzer",
@@ -34,6 +38,14 @@ export default {
     sidebarAskAQuestion: {
       title: "Pune o intrebare",
       url: "/{lang}/legal-question",
+    },
+    sidebarDocumentAnalyzer: {
+      title: "Analizeaza Documente",
+      url: "/{lang}/document-analyzer",
+    },
+    sidebarGenerateDocument: {
+      title: "Redacteaza Documente",
+      url: "/{lang}/generate-document",
     },
   },
 };

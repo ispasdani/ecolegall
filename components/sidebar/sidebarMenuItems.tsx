@@ -32,6 +32,27 @@ const SidebarItemsMenu = () => {
 
   return (
     <SidebarMenu>
+      {/* Dashboard Item */}
+      <SidebarMenuItem key={t("protected.sidebarDashboard.title")}>
+        <SidebarMenuButton asChild>
+          <Link
+            href={buildUrl(t("protected.sidebarDashboard.url"))}
+            className={cn(
+              {
+                "!bg-primary !text-white": isActive(
+                  t("protected.sidebarDashboard.url")
+                ),
+              },
+              "list-none"
+            )}
+          >
+            <ContractIcon />
+            <span>{t("protected.sidebarDashboard.title")}</span>
+          </Link>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+      {/* ------------ */}
+      {/* Contract Analyzer Item */}
       <SidebarMenuItem key={t("protected.sidebarContract.title")}>
         <SidebarMenuButton asChild>
           <Link
@@ -50,6 +71,8 @@ const SidebarItemsMenu = () => {
           </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
+      {/* ------------ */}
+      {/* Ask A Question Item */}
       <SidebarMenuItem key={t("protected.sidebarAskAQuestion.title")}>
         <SidebarMenuButton asChild>
           <Link
@@ -68,6 +91,47 @@ const SidebarItemsMenu = () => {
           </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
+      {/* ------------ */}
+      {/* Document Analyzer Item */}
+      <SidebarMenuItem key={t("protected.sidebarDocumentAnalyzer.title")}>
+        <SidebarMenuButton asChild>
+          <Link
+            href={buildUrl(t("protected.sidebarDocumentAnalyzer.url"))}
+            className={cn(
+              {
+                "!bg-primary !text-white": isActive(
+                  t("protected.sidebarDocumentAnalyzer.url")
+                ),
+              },
+              "list-none"
+            )}
+          >
+            <ContractIcon />
+            <span>{t("protected.sidebarDocumentAnalyzer.title")}</span>
+          </Link>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+      {/* ------------ */}
+      {/* Generate Document Item */}
+      <SidebarMenuItem key={t("protected.sidebarGenerateDocument.title")}>
+        <SidebarMenuButton asChild>
+          <Link
+            href={buildUrl(t("protected.sidebarGenerateDocument.url"))}
+            className={cn(
+              {
+                "!bg-primary !text-white": isActive(
+                  t("protected.sidebarGenerateDocument.url")
+                ),
+              },
+              "list-none"
+            )}
+          >
+            <ContractIcon />
+            <span>{t("protected.sidebarGenerateDocument.title")}</span>
+          </Link>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+      {/* ------------ */}
     </SidebarMenu>
   );
 };
