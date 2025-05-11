@@ -29,7 +29,11 @@ export default {
     },
     sidebarContract: {
       title: "Analizeaza Contract",
-      url: "/contract-analyzer",
+      url: "/{lang}/contract-analyzer",
+    },
+    sidebarAskAQuestion: {
+      title: "Pune o intrebare",
+      url: "/{lang}/legal-question",
     },
   },
 };

@@ -28,7 +28,11 @@ export default {
     },
     sidebarContract: {
       title: "Contract Analyzer",
-      url: "/contract-analyzer",
+      url: "/{lang}/contract-analyzer",
+    },
+    sidebarAskAQuestion: {
+      title: "Ask a Legal Question",
+      url: "/{lang}/legal-question",
     },
   },
 };
