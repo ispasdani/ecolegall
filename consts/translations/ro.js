@@ -27,6 +27,9 @@ export default {
         "Obține sfaturi juridice bazate pe AI și analiză de documente.",
       askQuestion: "Pune o întrebare juridică",
     },
+    sidebarApplicationLabel: {
+      title: "Aplicatii",
+    },
     sidebarDashboard: {
       title: "Acasa",
       url: "/{lang}/dashboard",

@@ -15,9 +15,11 @@ import Link from "next/link";
 
 import Logo from "@/svgs/logo";
 import SidebarItemsMenu from "./sidebarMenuItems";
+import { useLanguage } from "@/context/LanguageContext";
 
 const AppSidebar = () => {
   const { open } = useSidebar();
+  const { t } = useLanguage(); // Get lang from the context
 
   return (
     <Sidebar collapsible="icon">
@@ -31,7 +33,9 @@ const AppSidebar = () => {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>
+            {t("protected.sidebarApplicationLabel.title")}
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarItemsMenu />
           </SidebarGroupContent>

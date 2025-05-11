@@ -26,6 +26,9 @@ export default {
       description: "Get AI-powered legal advice and document analysis.",
       askQuestion: "Ask a legal question",
     },
+    sidebarApplicationLabel: {
+      title: "Applications",
+    },
     sidebarDashboard: {
       title: "Dashboard",
       url: "/{lang}/dashboard",
