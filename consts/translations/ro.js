@@ -27,5 +27,9 @@ export default {
         "Obține sfaturi juridice bazate pe AI și analiză de documente.",
       askQuestion: "Pune o întrebare juridică",
     },
+    sidebarContract: {
+      title: "Analizeaza Contract",
+      url: "/contract-analyzer",
+    },
   },
 };

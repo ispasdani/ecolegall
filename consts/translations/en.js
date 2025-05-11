@@ -26,5 +26,9 @@ export default {
       description: "Get AI-powered legal advice and document analysis.",
       askQuestion: "Ask a legal question",
     },
+    sidebarContract: {
+      title: "Contract Analyzer",
+      url: "/contract-analyzer",
+    },
   },
 };
