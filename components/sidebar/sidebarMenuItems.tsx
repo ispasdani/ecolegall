@@ -18,7 +18,6 @@ const SidebarItemsMenu = () => {
   const { t, lang } = useLanguage(); // Get lang from the context
 
   // Function to build correct URLs with language parameter
-  // Function to build correct URLs with language parameter
   const buildUrl = (baseUrl: string) => {
     return baseUrl.replace("{lang}", lang);
   };
