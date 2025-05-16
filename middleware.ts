@@ -7,8 +7,6 @@ const validLanguages = ["en", "fr", "es"];
 const defaultLanguage = "en";
 
 // Create a modified middleware that handles both auth and language
-// Create a modified middleware that handles both auth and language
-// Create a modified middleware that handles both auth and language
 const combinedMiddleware = async (
   auth: { protect: () => any },
   request: NextRequest
