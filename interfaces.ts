@@ -19,13 +19,6 @@ interface CompensationStructure {
   otherBenefits: string;
 }
 
-interface CompensationStructure {
-  baseSalary: string;
-  bonuses: string;
-  equity: string;
-  otherBenefits: string;
-}
-
 export interface ContractAnalysis {
   userId: string;
   contractText: string;
