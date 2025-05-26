@@ -44,3 +44,29 @@ export interface ContractAnalysis {
   createdAt: string;
   __v: number;
 }
+
+export interface ContractAnalysis {
+  userId: string;
+  contractText: string;
+  risks: Risk[];
+  opportunities: Opportunity[];
+  summary: string;
+  recommendations: string[];
+  keyClauses: string[];
+  legalCompliance: string;
+  negotiationPoints: string[];
+  contractDuration: string;
+  terminationConditions: string;
+  overallScore: number;
+  compensationStructure: CompensationStructure;
+  performanceMetrics: string[];
+  contractType: string;
+  intellectualPropertyClauses: string;
+  version: number;
+  expirationDate: string | null;
+  language: string;
+  aiModel: string;
+  _id: string;
+  createdAt: string;
+  __v: number;
+}
