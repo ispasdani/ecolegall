@@ -10,6 +10,12 @@ export default {
       feature3: "Management Documente",
     },
     publicNav: {
+      aboutUs: {
+        title: "Despre Noi",
+        href: "",
+      },
+      pricing: { title: "Preturi", href: "" },
+      products: { title: "Aplicatii", href: "" },
       contractAnalyzer: {
         title: "Analizor de Contracte",
         href: "/{lang}/contract-analyzer",

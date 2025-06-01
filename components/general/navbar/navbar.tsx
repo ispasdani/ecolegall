@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import {
@@ -9,13 +11,14 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import ListItem from "./listItem";
+import { cn } from "@/lib/utils";
+
 import { useLanguage } from "@/context/LanguageContext";
 import Icon from "../icon/Icon";
 import ClerkButton from "../clerkButton/clerkButton";
 
 const Nav = () => {
-  const { t, lang } = useLanguage(); // Get lang from the context
+  const { t, lang } = useLanguage();
 
   // Function to build correct URLs with language parameter
   const buildUrl = (baseUrl: string) => {
@@ -46,48 +49,85 @@ const Nav = () => {
   ];
 
   return (
-    <NavigationMenu viewport={false} className="h-[8vh] px-10">
-      <NavigationMenuList>
-        <Icon />
-      </NavigationMenuList>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Aplicatii</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={buildUrl(component.href)}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">About</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">Pricing</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">Privacy Policy</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-      <NavigationMenuList>
+    <nav className="w-full h-[8vh] px-10 flex items-center justify-between">
+      <Icon />
+
+      <NavigationMenu>
+        <NavigationMenuList>
+          {/* About Us Link */}
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link href={buildUrl(t("public.publicNav.aboutUs.href") || "#")}>
+                {t("public.publicNav.aboutUs.title")}
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+
+          {/* Pricing Link */}
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link href={buildUrl(t("public.publicNav.pricing.href") || "#")}>
+                {t("public.publicNav.pricing.title")}
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+
+          {/* Products Dropdown */}
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>
+              {t("public.publicNav.products.title")}
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                {components.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={buildUrl(component.href)}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      <div>
         <ClerkButton />
-      </NavigationMenuList>
-    </NavigationMenu>
+      </div>
+    </nav>
   );
 };
+
+function ListItem({
+  title,
+  children,
+  href,
+  ...props
+}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+  return (
+    <li {...props}>
+      <NavigationMenuLink asChild>
+        <Link
+          href={href}
+          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </Link>
+      </NavigationMenuLink>
+    </li>
+  );
+}
 
 export default Nav;

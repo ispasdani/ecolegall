@@ -10,6 +10,12 @@ export default {
       feature3: "Document Management",
     },
     publicNav: {
+      aboutUs: {
+        title: "About Us",
+        href: "",
+      },
+      pricing: { title: "Price", href: "" },
+      products: { title: "Products", href: "" },
       contractAnalyzer: {
         title: "Contract Analyzer",
         href: "/{lang}/contract-analyzer",
