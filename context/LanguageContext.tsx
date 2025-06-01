@@ -7,6 +7,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 // Import all translation files
 import en from "@/consts/translations/en";
@@ -15,8 +16,6 @@ import { AvailableLanguage } from "@/types/languageTypes";
 
 // Define types for the translations
 type TranslationDictionary = Record<string, any>;
-
-// Define the available languages
 
 const translations: Record<AvailableLanguage, TranslationDictionary> = {
   en,
@@ -36,13 +35,25 @@ const LanguageContext = createContext<LanguageContextType | null>(null);
 interface LanguageProviderProps {
   children: ReactNode;
   initialLang?: AvailableLanguage;
+  // Define which routes should NOT update the URL when language changes
+  publicRoutes?: string[];
 }
 
 export function LanguageProvider({
   children,
   initialLang = "en",
+  publicRoutes = ["/", "/home"], // Default public routes
 }: LanguageProviderProps) {
   const [lang, setLang] = useState<AvailableLanguage>(initialLang);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Check if current route is a public route (shouldn't update URL)
+  const isPublicRoute = publicRoutes.some((route) => {
+    // Remove language prefix from pathname for comparison
+    const pathWithoutLang = pathname.replace(/^\/[a-z]{2}(\/|$)/, "/");
+    return pathWithoutLang === route || pathWithoutLang.startsWith(route + "/");
+  });
 
   // Load language preference from localStorage (client-side only)
   useEffect(() => {
@@ -65,7 +76,29 @@ export function LanguageProvider({
     console.log("ChangeLang called with:", newLang);
     if (["en", "ro"].includes(newLang)) {
       setLang(newLang);
-      console.log("Language set to:", newLang);
+
+      // Only update URL if not on a public route
+      if (!isPublicRoute) {
+        // Handle URL updates for protected routes
+        const currentPath = pathname;
+
+        // If current path already has a language prefix, replace it
+        if (currentPath.match(/^\/[a-z]{2}\//)) {
+          const newPath = currentPath.replace(/^\/[a-z]{2}/, `/${newLang}`);
+
+          // Only navigate if the path is actually different
+          if (newPath !== currentPath) {
+            router.push(newPath);
+          } else {
+          }
+        } else {
+          // Add language prefix to the current path
+          const newPath = `/${newLang}${currentPath}`;
+          router.push(newPath);
+        }
+      } else {
+        console.log("Public route detected, not updating URL");
+      }
     } else {
       console.warn(`Invalid language code: ${newLang}`);
     }

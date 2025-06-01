@@ -9,6 +9,31 @@ export default {
       feature2: "Legal AI Assistant",
       feature3: "Document Management",
     },
+    publicNav: {
+      contractAnalyzer: {
+        title: "Contract Analyzer",
+        href: "/{lang}/contract-analyzer",
+        description:
+          "A modal dialog that interrupts the user with important content and expects a response.",
+      },
+      askALegalQuestion: {
+        title: "Ask a Legal Question",
+        href: "/{lang}/legal-question",
+        description:
+          "For sighted users to preview content available behind a link.",
+      },
+      documentAnalyzer: {
+        title: "Document Analyzer",
+        href: "/{lang}/document-analyzer",
+        description:
+          "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      },
+      generateDocument: {
+        title: "Generate Document",
+        href: "/{lang}/generate-document",
+        description: "Visually or semantically separates content.",
+      },
+    },
   },
   protected: {
     common: {

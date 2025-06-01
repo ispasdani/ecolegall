@@ -10,8 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { useRouter, usePathname } from "next/navigation";
-import { useEffect } from "react";
 
 interface Language {
   code: AvailableLanguage;
@@ -20,10 +18,6 @@ interface Language {
 
 export default function LanguageSwitcher() {
   const { lang, changeLang } = useLanguage();
-  const router = useRouter();
-  const pathname = usePathname();
-
-  console.log("Current language:", lang); // Debug current language
 
   const languages: Language[] = [
     { code: "en", name: "English" },
@@ -33,32 +27,9 @@ export default function LanguageSwitcher() {
   const currentLanguage = languages.find((language) => language.code === lang);
 
   const handleLanguageChange = (code: AvailableLanguage) => {
-    console.log("Changing language to:", code); // Debug language change
+    // Just call changeLang - let LanguageProvider handle URL logic
     changeLang(code);
-
-    // Update URL to reflect language change
-    // Extract current language from URL and replace it
-    const pathParts = pathname.split("/");
-
-    // Assuming language is the first part of the path after the initial slash
-    if (
-      pathParts.length > 1 &&
-      languages.some((l) => l.code === pathParts[1])
-    ) {
-      pathParts[1] = code;
-      const newPath = pathParts.join("/");
-      router.push(newPath);
-    } else {
-      // If no language in path, add it
-      const newPath = `/${code}${pathname}`;
-      router.push(newPath);
-    }
   };
-
-  // Debug re-renders
-  useEffect(() => {
-    console.log("LanguageSwitcher rendered with language:", lang);
-  }, [lang]);
 
   return (
     <DropdownMenu>

@@ -1,6 +1,7 @@
 // app/page.tsx
 "use client";
 
+import Nav from "@/components/general/navbar/navbar";
 import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -9,6 +10,7 @@ export default function Home() {
 
   return (
     <main>
+      <Nav />
       <header className="">
         <h1>{t("public.title")}</h1>
         <div className="header-right">
