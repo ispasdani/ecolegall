@@ -16,6 +16,12 @@ export default {
       },
       pricing: { title: "Price", href: "" },
       products: { title: "Products", href: "" },
+      aboutUs: {
+        title: "Despre Noi",
+        href: "",
+      },
+      pricing: { title: "Preturi", href: "" },
+      dashboard: { title: "Dashboard", href: "" },
       contractAnalyzer: {
         title: "Contract Analyzer",
         href: "/{lang}/contract-analyzer",

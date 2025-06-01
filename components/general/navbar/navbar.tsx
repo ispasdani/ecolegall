@@ -97,6 +97,20 @@ const Nav = () => {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
+
+          {/* Dashboard Link */}
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link
+                href={buildUrl(t("public.publicNav.dashboard.href") || "#")}
+              >
+                {t("public.publicNav.dashboard.title")}
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
 
