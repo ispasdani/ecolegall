@@ -11,7 +11,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 
 import { useLanguage } from "@/context/LanguageContext";
 import Icon from "../icon/Icon";
