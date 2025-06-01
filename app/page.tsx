@@ -9,7 +9,7 @@ export default function Home() {
   const { t } = useLanguage();
 
   return (
-    <main>
+    <main className="w-full">
       <Nav />
       <header className="">
         <h1>{t("public.title")}</h1>

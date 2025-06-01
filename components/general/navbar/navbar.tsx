@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import ListItem from "./listItem";
 import { useLanguage } from "@/context/LanguageContext";
+import Icon from "../icon/Icon";
+import ClerkButton from "../clerkButton/clerkButton";
 
 const Nav = () => {
   const { t, lang } = useLanguage(); // Get lang from the context
@@ -44,7 +46,10 @@ const Nav = () => {
   ];
 
   return (
-    <NavigationMenu viewport={false}>
+    <NavigationMenu viewport={false} className="h-[8vh] px-10">
+      <NavigationMenuList>
+        <Icon />
+      </NavigationMenuList>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Aplicatii</NavigationMenuTrigger>
@@ -54,7 +59,7 @@ const Nav = () => {
                 <ListItem
                   key={component.title}
                   title={component.title}
-                  href={buildUrl(component.href)} // Use buildUrl here
+                  href={buildUrl(component.href)}
                 >
                   {component.description}
                 </ListItem>
@@ -77,6 +82,9 @@ const Nav = () => {
             <Link href="/docs">Privacy Policy</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
+      </NavigationMenuList>
+      <NavigationMenuList>
+        <ClerkButton />
       </NavigationMenuList>
     </NavigationMenu>
   );
