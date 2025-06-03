@@ -16,7 +16,7 @@ export default {
       },
       pricing: { title: "Preturi", href: "" },
       products: { title: "Aplicatii", href: "" },
-      dashboard: { title: "Dashboard", href: "" },
+      dashboard: { title: "Dashboard", href: "/{lang}/dashboard" },
       contractAnalyzer: {
         title: "Analizor de Contracte",
         href: "/{lang}/contract-analyzer",

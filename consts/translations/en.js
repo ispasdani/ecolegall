@@ -17,11 +17,11 @@ export default {
       pricing: { title: "Price", href: "" },
       products: { title: "Products", href: "" },
       aboutUs: {
-        title: "Despre Noi",
+        title: "About Us",
         href: "",
       },
-      pricing: { title: "Preturi", href: "" },
-      dashboard: { title: "Dashboard", href: "" },
+      pricing: { title: "Pricing", href: "" },
+      dashboard: { title: "Dashboard", href: "/{lang}/dashboard" },
       contractAnalyzer: {
         title: "Contract Analyzer",
         href: "/{lang}/contract-analyzer",
