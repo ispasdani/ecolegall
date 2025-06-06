@@ -5,7 +5,7 @@ const Icon = () => {
   return (
     <div className="flex items-center justify-center">
       <ShieldPolicy />{" "}
-      <p className="text-xl uppercase ml-1">
+      <p className="text-3xl font-semibold tracking-tight ml-1">
         Eco<span className="text-blue-500">Legall</span>
       </p>
     </div>
