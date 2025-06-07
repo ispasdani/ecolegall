@@ -1,8 +1,11 @@
 // app/page.tsx
 "use client";
 
+import Grids from "@/components/general/grids/grids";
+import Header from "@/components/general/headers";
 import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
 import Hero from "@/components/publicSections/hero";
+import ProductPreview from "@/components/publicSections/productPreview";
 import Products from "@/components/publicSections/products";
 import ProductsCards from "@/components/publicSections/productsCards";
 import { useLanguage } from "@/context/LanguageContext";
@@ -15,6 +18,9 @@ export default function Home() {
       <Hero />
       <Products />
       <ProductsCards />
+      <ProductPreview />
+      <Header />
+      <Grids />
       <header className="">
         <h1>{t("public.title")}</h1>
         <div className="header-right">
