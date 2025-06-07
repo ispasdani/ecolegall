@@ -4,6 +4,7 @@
 import { DotBackgroundDemo } from "@/components/general/dotBackground/dotBackground";
 import Nav from "@/components/general/navbar/navbar";
 import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
+import Hero from "@/components/publicSections/hero";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
@@ -11,10 +12,7 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      <Nav />
-      <div>
-        <DotBackgroundDemo />
-      </div>
+      <Hero />
       <header className="">
         <h1>{t("public.title")}</h1>
         <div className="header-right">

@@ -14,8 +14,8 @@ import {
 } from "@/components/ui/navigation-menu";
 
 import { useLanguage } from "@/context/LanguageContext";
-import Icon from "../icon/Icon";
 import ClerkButton from "../clerkButton/clerkButton";
+import FullLogo from "@/svgs/fullLogo";
 
 const Nav = () => {
   const { t, lang } = useLanguage();
@@ -70,8 +70,8 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="w-full h-[8vh] px-10 flex items-center justify-between">
-      <Icon />
+    <nav className="w-full h-[10vh] flex items-center justify-between">
+      <FullLogo />
 
       {/* Desktop Navigation */}
       <div className="hidden md:block">
