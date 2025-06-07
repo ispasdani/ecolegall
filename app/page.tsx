@@ -4,8 +4,10 @@
 import Grids from "@/components/general/grids/grids";
 import Header from "@/components/general/headers";
 import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
+import FAQSection from "@/components/publicSections/faq";
 import Hero from "@/components/publicSections/hero";
 import MapSection from "@/components/publicSections/mapSection";
+import Pricing from "@/components/publicSections/pricingSection";
 import ProductPreview from "@/components/publicSections/productPreview";
 import Products from "@/components/publicSections/products";
 import ProductsCards from "@/components/publicSections/productsCards";
@@ -35,6 +37,9 @@ export default function Home() {
         subtitle="Pick from our packs and get started in minutes, simple for everyone. Pay what you use. No subscription needed!"
         className="mt-3"
       />
+      <Pricing />
+
+      <FAQSection />
       <header className="">
         <h1>{t("public.title")}</h1>
         <div className="header-right">
