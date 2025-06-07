@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Banner from "../general/banner";
 import { transition, variants } from "@/lib/data";
 import Analytics from "../general/analytics";
+import PaperPinCard from "../general/paperPin";
+import { ChatInput } from "../general/ChatInput";
 
 const text = "Your legal guide. Instant answers. Document analyzer and Advisor";
 
@@ -33,35 +35,46 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <motion.div className="w-full h-5/6 flex flex-col items-center justify-center">
-          <Banner />
+        <div className="absolute -z-10 md:-bottom-16 md:right-72 -bottom-20 right-16 rotate-[-19deg]">
+          <Analytics color="#DFEBF3" />
+        </div>
 
-          <h1 className="md:text-5xl text-2xl font-bold text-center md:w-4/6 w-full mt-8">
-            {words.map((word, index) => (
-              <React.Fragment key={index}>
-                <motion.span
-                  className="inline-block"
-                  transition={transition}
-                  variants={variants}
-                >
-                  {word}
-                </motion.span>
-                {index < words.length - 1 && " "}
-              </React.Fragment>
-            ))}
-          </h1>
-
-          <motion.p
-            transition={transition}
-            variants={variants}
-            className="md:text-lg text-sm font-medium leading-[23px] text-center tracking-tight max-w-2xl mx-auto w-[95%] mt-9 text-neutral-600"
-          >
-            Perform document analysis with human-level precision more faster and
-            efficient. Simplify legal work. Instant answears for your legal
-            questions.
-          </motion.p>
-        </motion.div>
+        <div className="absolute -z-10 md:-bottom-36 md:-right-10 -bottom-36 -right-48 rotate-[-12deg]">
+          <PaperPinCard className="md:[&>*]:scale-100 [&>*]:scale-75" />
+        </div>
       </div>
+
+      <motion.div className="w-full h-5/6 flex flex-col items-center justify-center">
+        <Banner />
+
+        <h1 className="md:text-5xl text-2xl font-bold text-center md:w-4/6 w-full mt-8">
+          {words.map((word, index) => (
+            <React.Fragment key={index}>
+              <motion.span
+                className="inline-block"
+                transition={transition}
+                variants={variants}
+              >
+                {word}
+              </motion.span>
+              {index < words.length - 1 && " "}
+            </React.Fragment>
+          ))}
+        </h1>
+
+        <motion.p
+          transition={transition}
+          variants={variants}
+          className="md:text-lg text-sm font-medium leading-[23px] text-center tracking-tight max-w-2xl mx-auto w-[95%] mt-9 text-neutral-600"
+        >
+          Perform document analysis with human-level precision more faster and
+          efficient. Simplify legal work. Instant answears for your legal
+          questions.
+        </motion.p>
+        <motion.div className="z-99 mt-5">
+          <ChatInput />
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

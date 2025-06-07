@@ -1,10 +1,10 @@
 // app/page.tsx
 "use client";
 
-import { DotBackgroundDemo } from "@/components/general/dotBackground/dotBackground";
-import Nav from "@/components/general/navbar/navbar";
 import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
 import Hero from "@/components/publicSections/hero";
+import Products from "@/components/publicSections/products";
+import ProductsCards from "@/components/publicSections/productsCards";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
@@ -13,6 +13,8 @@ export default function Home() {
   return (
     <main className="w-full">
       <Hero />
+      <Products />
+      <ProductsCards />
       <header className="">
         <h1>{t("public.title")}</h1>
         <div className="header-right">
