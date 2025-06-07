@@ -4,6 +4,7 @@
 import Grids from "@/components/general/grids/grids";
 import Header from "@/components/general/headers";
 import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
+import AboutUs from "@/components/publicSections/aboutUsSection";
 import FAQSection from "@/components/publicSections/faq";
 import Hero from "@/components/publicSections/hero";
 import MapSection from "@/components/publicSections/mapSection";
@@ -38,6 +39,14 @@ export default function Home() {
         className="mt-3"
       />
       <Pricing />
+
+      <Header
+        badge="About Us"
+        title="Regular updates from us"
+        subtitle="This is the section where we will try to do our best to keep you updated with the latest changes and improvements that we make. We want to be be like an open book."
+        className="my-10"
+      />
+      <AboutUs />
 
       <FAQSection />
       <header className="">

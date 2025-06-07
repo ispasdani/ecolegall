@@ -4,6 +4,7 @@ import "./globals.css";
 import ConvexClerkProvider from "./providers/ConvexClerkProvider";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Nav from "@/components/general/navbar/navbar";
+import Footer from "@/components/general/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
           <LanguageProvider>
             <Nav />
             {children}
+            <Footer />
           </LanguageProvider>
         </ConvexClerkProvider>
       </body>
