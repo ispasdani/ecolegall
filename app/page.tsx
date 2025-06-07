@@ -5,6 +5,7 @@ import Grids from "@/components/general/grids/grids";
 import Header from "@/components/general/headers";
 import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
 import Hero from "@/components/publicSections/hero";
+import MapSection from "@/components/publicSections/mapSection";
 import ProductPreview from "@/components/publicSections/productPreview";
 import Products from "@/components/publicSections/products";
 import ProductsCards from "@/components/publicSections/productsCards";
@@ -21,6 +22,19 @@ export default function Home() {
       <ProductPreview />
       <Header />
       <Grids />
+      <Header
+        badge="Availability"
+        title="We are available everywhere"
+        subtitle="Our platform is available in all countries. Currently we support legal databases from 11 countries and we currently work in adding more."
+        className="mt-40 md:mt-40"
+      />
+      <MapSection />
+      <Header
+        badge="Pricing"
+        title="Pricing so simple, you buy credits instantly"
+        subtitle="Pick from our packs and get started in minutes, simple for everyone. Pay what you use. No subscription needed!"
+        className="mt-3"
+      />
       <header className="">
         <h1>{t("public.title")}</h1>
         <div className="header-right">

@@ -11,6 +11,7 @@ import IconBoxHero from "../iconBoxHero";
 import Analytics from "../analytics";
 import Avatar from "../avatar";
 import AttachIcon from "@/svgs/attachIcon";
+import AiAgentIcon from "@/svgs/aiAgentIcon";
 
 const Grids = () => {
   return (
@@ -27,20 +28,15 @@ const Grids = () => {
             <div className="w-[85%] h-[189px] bg-[#FFFFFF] mt-10 py-5 space-y-2 z-10 border border-[#DBDCDF] shadow-[0px_3px_8px_-1px_#3232470D,0px_0px_1px_0px_#0C1A4B3D] rounded-3xl">
               <div className="flex justify-between px-5">
                 <div className="p-3 bg-[#E4ECF7] rounded-xl">
-                  <Image
-                    src={"/assets/driveLogo.png"}
-                    width={30}
-                    height={30}
-                    alt={"avatar"}
-                  />
+                  <AiAgentIcon />
                 </div>
                 <HorizontalDots />
               </div>
-              <h1 className="font-semibold px-5">Manu Arora</h1>
+              <h1 className="font-semibold px-5">Analyzing web results...</h1>
               <div className="px-5">
                 <div className="flex justify-between text-[#84859E]">
-                  <span>69 GB</span>
-                  <span>80 GB</span>
+                  <span>0%</span>
+                  <span>100%</span>
                 </div>
                 <div className="mt-2">
                   <div className="w-full h-2 bg-[#E4ECF7] rounded-full overflow-hidden">
@@ -50,19 +46,19 @@ const Grids = () => {
               </div>
             </div>
             <ContentCard
-              title="Easy resume upload"
-              description="Simple way to track user's resume and relevant scores"
+              title="AI-Agent that works for you"
+              description="Our AI-Agent will crawl the internet to gather and analyze legal information. It will let you know when job is done!"
               className="mt-24 "
             />
           </div>
           <div className="bg-[#FFFFFF] h-[483px] lg:w-3/5 w-full flex flex-col items-center rounded-[26px] p-5 border overflow-hidden">
             <div className="relative w-full h-[293px] mt-5 flex flex-col items-center">
-              <div className="absolute -left-[70px] scale-125 top-7 rotate-[12deg]">
+              <div className="absolute -left-[100px] scale-125 top-7 rotate-[12deg]">
                 <div>
                   <Analytics color="#DFEBF3" />
                 </div>
               </div>
-              <div className="absolute -right-[70px] scale-125 top-7 rotate-[-20deg]">
+              <div className="absolute -right-[100px] scale-125 top-7 rotate-[-20deg]">
                 <div>
                   <Analytics color="#DFEBF3" />
                 </div>
