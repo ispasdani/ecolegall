@@ -1,5 +1,5 @@
 import { ConvexError, v } from "convex/values";
-import { internalMutation, query } from "./_generated/server";
+import { internalMutation, mutation, query } from "./_generated/server";
 
 // Query to get a user by their clerkId.
 export const getUserById = query({
@@ -60,19 +60,6 @@ export const updateUser = internalMutation({
       throw new ConvexError("User not found");
     }
 
-    // const podcast = await ctx.db
-    //   .query("podcasts")
-    //   .filter((q) => q.eq(q.field("authorId"), args.clerkId))
-    //   .collect();
-
-    // await Promise.all(
-    //   podcast.map(async (p) => {
-    //     await ctx.db.patch(p._id, {
-    //       authorImageUrl: args.imageUrl,
-    //     });
-    //   })
-    // );
-
     // Build an update object that includes only the fields provided in args.
     const updatePayload: Record<string, unknown> = {};
 
@@ -107,5 +94,72 @@ export const deleteUser = internalMutation({
     }
 
     await ctx.db.delete(user._id);
+  },
+});
+
+// Mutation to deduct credits from a user
+export const deductCredits = mutation({
+  args: {
+    userId: v.id("users"),
+    amount: v.number(),
+  },
+  handler: async (ctx, args) => {
+    const user = await ctx.db.get(args.userId);
+
+    if (!user) {
+      throw new ConvexError("User not found");
+    }
+
+    if (user.credits < args.amount) {
+      throw new ConvexError("Insufficient credits");
+    }
+
+    const newCredits = user.credits - args.amount;
+
+    await ctx.db.patch(args.userId, {
+      credits: newCredits,
+    });
+
+    return newCredits;
+  },
+});
+
+// Mutation to add credits to a user (for purchases, refunds, etc.)
+export const addCredits = mutation({
+  args: {
+    userId: v.id("users"),
+    amount: v.number(),
+  },
+  handler: async (ctx, args) => {
+    const user = await ctx.db.get(args.userId);
+
+    if (!user) {
+      throw new ConvexError("User not found");
+    }
+
+    const newCredits = user.credits + args.amount;
+
+    await ctx.db.patch(args.userId, {
+      credits: newCredits,
+    });
+
+    return newCredits;
+  },
+});
+
+// Query to get user's current credit balance
+export const getCreditBalance = query({
+  args: { clerkId: v.string() },
+  handler: async (ctx, args) => {
+    const user = await ctx.db
+      .query("users")
+      .filter((q) => q.eq(q.field("clerkId"), args.clerkId))
+      .first();
+
+    if (!user) {
+      return 0;
+    }
+
+    return user.credits;
   },
 });
