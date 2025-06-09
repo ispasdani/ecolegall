@@ -1,6 +1,7 @@
 // components/sidebar/SidebarItemsMenu.tsx
 "use client";
 
+import GenerateDocument from "@/app/(protected)/[lang]/generate-document/page";
 import {
   SidebarMenu,
   SidebarMenuButton,
@@ -8,7 +9,11 @@ import {
 } from "@/components/ui/sidebar";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
+import AskALegalQuestionIcon from "@/svgs/askALegalQuestionIcon";
 import ContractIcon from "@/svgs/contractIcon";
+import DashboardIcon from "@/svgs/dashboardIcon";
+import DocumentAnalyzerIcon from "@/svgs/documentAnalyzerIcon";
+import DocumentGenerationIcon from "@/svgs/documentGenerationIcon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -46,7 +51,9 @@ const SidebarItemsMenu = () => {
               "list-none"
             )}
           >
-            <ContractIcon />
+            <DashboardIcon
+              fill={`${isActive(t("protected.sidebarDashboard.url")) ? "white" : "#25A18E"}`}
+            />
             <span>{t("protected.sidebarDashboard.title")}</span>
           </Link>
         </SidebarMenuButton>
@@ -66,7 +73,9 @@ const SidebarItemsMenu = () => {
               "list-none"
             )}
           >
-            <ContractIcon />
+            <ContractIcon
+              fill={`${isActive(t("protected.sidebarContract.url")) ? "white" : "#25A18E"}`}
+            />
             <span>{t("protected.sidebarContract.title")}</span>
           </Link>
         </SidebarMenuButton>
@@ -86,7 +95,9 @@ const SidebarItemsMenu = () => {
               "list-none"
             )}
           >
-            <ContractIcon />
+            <AskALegalQuestionIcon
+              fill={`${isActive(t("protected.sidebarAskAQuestion.url")) ? "white" : "#25A18E"}`}
+            />
             <span>{t("protected.sidebarAskAQuestion.title")}</span>
           </Link>
         </SidebarMenuButton>
@@ -106,7 +117,9 @@ const SidebarItemsMenu = () => {
               "list-none"
             )}
           >
-            <ContractIcon />
+            <DocumentAnalyzerIcon
+              fill={`${isActive(t("protected.sidebarDocumentAnalyzer.url")) ? "white" : "#25A18E"}`}
+            />
             <span>{t("protected.sidebarDocumentAnalyzer.title")}</span>
           </Link>
         </SidebarMenuButton>
@@ -126,7 +139,9 @@ const SidebarItemsMenu = () => {
               "list-none"
             )}
           >
-            <ContractIcon />
+            <DocumentGenerationIcon
+              fill={`${isActive(t("protected.sidebarGenerateDocument.url")) ? "white" : "#25A18E"}`}
+            />
             <span>{t("protected.sidebarGenerateDocument.title")}</span>
           </Link>
         </SidebarMenuButton>

@@ -24,8 +24,11 @@ const AppSidebar = () => {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader>
-        <Link href={"/"} className="flex items-center justify-start">
+      <SidebarHeader className="flex justify-center items-center ">
+        <Link
+          href={"/"}
+          className={`${open ? "w-[120px]" : "scale-70"} flex items-center justify-start`}
+        >
           {open ? <FullLogo /> : <IconLogo />}
         </Link>
       </SidebarHeader>
