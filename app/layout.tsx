@@ -29,14 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased px-20`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ConvexClerkProvider>
-          <LanguageProvider>
-            <Nav />
-            {children}
-            <Footer />
-          </LanguageProvider>
+          <LanguageProvider>{children}</LanguageProvider>
         </ConvexClerkProvider>
       </body>
     </html>

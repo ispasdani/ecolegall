@@ -13,9 +13,10 @@ import {
 
 import Link from "next/link";
 
-import Logo from "@/svgs/logo";
 import SidebarItemsMenu from "./sidebarMenuItems";
 import { useLanguage } from "@/context/LanguageContext";
+import FullLogo from "@/svgs/fullLogo";
+import IconLogo from "@/svgs/iconLogo";
 
 const AppSidebar = () => {
   const { open } = useSidebar();
@@ -25,10 +26,7 @@ const AppSidebar = () => {
     <Sidebar collapsible="icon">
       <SidebarHeader>
         <Link href={"/"} className="flex items-center justify-start">
-          <Logo className="w-[24px] h-[24px] m-2" />
-          {open && (
-            <h1 className="text-xl font-semibold text-primary">K2-Frame</h1>
-          )}
+          {open ? <FullLogo /> : <IconLogo />}
         </Link>
       </SidebarHeader>
       <SidebarContent>

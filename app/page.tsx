@@ -1,8 +1,10 @@
 // app/page.tsx
 "use client";
 
+import Footer from "@/components/general/footer";
 import Grids from "@/components/general/grids/grids";
 import Header from "@/components/general/headers";
+import Nav from "@/components/general/navbar/navbar";
 import LanguageSwitcher from "@/components/languageTranslations/LanguageSwitcher";
 import AboutUs from "@/components/publicSections/aboutUsSection";
 import FAQSection from "@/components/publicSections/faq";
@@ -18,7 +20,8 @@ export default function Home() {
   const { t } = useLanguage();
 
   return (
-    <main className="w-full">
+    <main className="w-full px-20">
+      <Nav />
       <Hero />
       <Products />
       <ProductsCards />
@@ -71,6 +74,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }
