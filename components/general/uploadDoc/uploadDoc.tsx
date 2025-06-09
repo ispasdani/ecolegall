@@ -2,6 +2,8 @@
 
 import React, { useState, ChangeEvent, DragEvent } from "react";
 import { Upload, FileText, File, ChevronDown } from "lucide-react";
+import { useContractAnalysisStore } from "@/store/contractAnalysisState";
+import router from "next/router";
 
 interface Agent {
   value: string;
@@ -20,6 +22,14 @@ const UploadDoc = () => {
     { value: "risk-assessor", label: "Risk Assessor" },
     { value: "clause-extractor", label: "Clause Extractor" },
   ];
+
+  const {
+    setCurrentAnalysis,
+    setAnalysisId,
+    setLoading,
+    setError,
+    addToHistory,
+  } = useContractAnalysisStore();
 
   const handleDrag = (e: DragEvent<HTMLDivElement>): void => {
     e.preventDefault();
@@ -62,6 +72,43 @@ const UploadDoc = () => {
 
   const removeFile = (): void => {
     setUploadedFile(null);
+  };
+
+  const handleStartAnalysis = async () => {
+    if (!uploadedFile || !selectedAgent) return;
+    setLoading(true);
+    setError(null);
+
+    const formData = new FormData();
+    formData.append("file", uploadedFile);
+    formData.append("agent", selectedAgent);
+
+    try {
+      const res = await fetch("/api/analyze", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Analysis failed");
+      console.log(data, "data");
+
+      // Store in Zustand
+      setAnalysisId(data.analysisId);
+      setCurrentAnalysis(data.analysis);
+      addToHistory({
+        id: data.analysisId,
+        title: uploadedFile.name,
+        type: selectedAgent,
+      });
+
+      // Navigate to a detail page (you can create pages/analysis/[id].tsx)
+      //   router.push(`/analysis/${data.analysisId}`);
+    } catch (e: any) {
+      console.error(e);
+      setError(e.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -160,10 +207,13 @@ const UploadDoc = () => {
                 </p>
               </div>
               <button
-                className="cursor-pointer px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors"
-                type="button"
+                onClick={handleStartAnalysis}
+                disabled={useContractAnalysisStore.getState().isLoading}
+                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700"
               >
-                Start Analysis
+                {useContractAnalysisStore.getState().isLoading
+                  ? "Analyzing…"
+                  : "Start Analysis"}
               </button>
             </div>
           </div>
