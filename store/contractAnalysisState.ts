@@ -31,14 +31,12 @@ export const useContractAnalysisStore = create<ContractAnalysisState>()(
   persist(
     (set) => ({
       // Initial state
-      // Initial state
       currentAnalysis: null,
       analysisId: null,
       isLoading: false,
       error: null,
       recentAnalyses: [],
 
-      // Actions
       // Actions
       setCurrentAnalysis: (analysis) =>
         set({ currentAnalysis: analysis, error: null }),
