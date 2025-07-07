@@ -1,7 +1,7 @@
 import React from "react";
 
 const LegalQuestion = () => {
-  return <div>LegalQuestionnnn</div>;
+  return <div>LegalQuestion</div>;
 };
 
 export default LegalQuestion;
